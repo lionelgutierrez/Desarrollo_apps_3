@@ -1,0 +1,17 @@
+El servidor MQTT corre localmente.
+
+Desde el ESP32 se envian datos con topicos de la forma:
+
+   ESP32_1_lio/dht/temp_humedad
+
+   donde ESP32_1_lio es el nombre del dispositivo
+
+Y el mensaje se envia de la forma "TEMPERATURA,HUMEDAD"
+
+Por ejemplo, un envio seria: ESP32_1_lio/dht/temp_humedad 20.30,93.00	
+
+	topico:  ESP32_1_lio/dht/temp_humedad
+	mensaje 20.30,93.00 = TEMP,HUMEDAD
+
+
+

@@ -1,0 +1,3 @@
+La aplicacion online para el almacenamiento de datos se realiza como un flujo en NodeRed.
+El mismo toma los datos del servidor mosquitto de MQTT, parsea esa informacion mediante una funcion para armar el INSERT a la base de datos mysql, dentro de la base de datos Laravel, tabla series
+
