@@ -15,24 +15,27 @@ class SerieController extends Controller
      */
     public function index()
     {
-        //
-        $series = Serie::select('topic','timestamp','temperatura','humedad')->get();
-        /*
-        $series =DB::table('series')
-            ->join('dispositivos', 'series.topic',  'CONCAT(dispositivos.nombre,'/',dispositivos.tipo)')
-            ->select('dispositivos.id', 'dispositivos.nombre', 'dispositivos.tipo','dispositivos.ubicacion','series.timestamp','series.topic','series.temperatura','series.humedad')
-            ->get();
-                    //'STR_TO_DATE("timestamp", "%d/%m/%Y %h:%i:%s")'
-
-            */
-            $series =DB::table('series')
-            ->join('dispositivos', 'series.topic',  'CONCAT(dispositivos.nombre,'/',dispositivos.tipo)')
-            ->select('dispositivos.id', 'dispositivos.nombre', 'dispositivos.tipo','dispositivos.ubicacion','series.timestamp','series.topic','series.temperatura','series.humedad')
-            ->get();
-
-        return $series;        
+        //$series = Serie::all();
+        $series = Serie::select('timestamp','temperatura','humedad')->get();
+    
+        return $series;
     }
 
+    public function disponibles()
+    {
+        //
+        
+        $dispositivos =DB::table('dispositivos')
+                ->leftJoin('series', 'series.topic', '=', DB::Raw("CONCAT(dispositivos.nombre,'/',dispositivos.tipo)"))
+                ->select( 'dispositivos.nombre', 'dispositivos.tipo','dispositivos.ubicacion','series.topic')
+                ->whereNotNull('series.topic')
+                ->distinct()
+                ->get();
+
+        
+        //return $series;        
+        return  view('Mediciones.index',compact('dispositivos'));
+    }    
     
     /**
      * Display the specified resource.

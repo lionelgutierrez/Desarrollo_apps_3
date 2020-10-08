@@ -54,7 +54,7 @@ methods: {
                         var data = [["Fecha", "Temperatura", "Humedad"]];
                         var contador = 0;
                         response.data.forEach(obj => {
-                          var fil = [obj.timestamp.substring(0,10), parseFloat(obj.temperatura), parseFloat(obj.humedad)];
+                          var fil = [obj.timestamp.substring(11,19), parseFloat(obj.temperatura), parseFloat(obj.humedad)];
                           data.push(fil);
                           contador++;
                         });

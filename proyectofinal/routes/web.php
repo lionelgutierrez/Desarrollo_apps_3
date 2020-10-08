@@ -19,9 +19,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/Mediciones', function () {
-    return view('Mediciones.index');
-});
+
+Route::get('/Mediciones', 'SerieController@disponibles');
 
 Route::get('/Mediciones/{dispositivo}/{topic}/{dia?}', function ($dispositivo,$topic,$dia) {
     return view('Mediciones.show',compact('dispositivo','topic','dia'));
