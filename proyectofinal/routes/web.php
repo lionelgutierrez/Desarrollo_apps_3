@@ -18,3 +18,11 @@ Route::resource('Dispositivo', 'DispositivoController');
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/Mediciones', function () {
+    return view('Mediciones.index');
+});
+
+Route::get('/Mediciones/{topic}', function ($topic) {
+    return view('Mediciones.show',compact('topic'));
+});
