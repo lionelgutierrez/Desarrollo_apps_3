@@ -22,8 +22,14 @@ class SerieController extends Controller
             ->join('dispositivos', 'series.topic',  'CONCAT(dispositivos.nombre,'/',dispositivos.tipo)')
             ->select('dispositivos.id', 'dispositivos.nombre', 'dispositivos.tipo','dispositivos.ubicacion','series.timestamp','series.topic','series.temperatura','series.humedad')
             ->get();
+                    //'STR_TO_DATE("timestamp", "%d/%m/%Y %h:%i:%s")'
+
             */
-    
+            $series =DB::table('series')
+            ->join('dispositivos', 'series.topic',  'CONCAT(dispositivos.nombre,'/',dispositivos.tipo)')
+            ->select('dispositivos.id', 'dispositivos.nombre', 'dispositivos.tipo','dispositivos.ubicacion','series.timestamp','series.topic','series.temperatura','series.humedad')
+            ->get();
+
         return $series;        
     }
 
@@ -36,14 +42,26 @@ class SerieController extends Controller
      */
     public function show($topic)
     {
-        //'STR_TO_DATE("timestamp", "%d/%m/%Y %h:%i:%s")'
         $topic = str_replace("-","/",$topic);
-        
         $series = Serie::select('timestamp','temperatura','humedad')->where('topic',$topic)->orderBy('timestamp','asc')->get();
         return $series;
-        //return $topic;
 
     }
+
+    
+    public function showdate($topic,$dia)
+    {
+        $topic = str_replace("-","/",$topic);
+        $dia = str_replace("-","/",$dia);
+        
+        $series = Serie::select('timestamp','temperatura','humedad')
+                        ->where('topic',$topic)
+                        ->where(\DB::raw('substr(timestamp, 1, 10)'), '=' , $dia)
+                        ->orderByRaw('substr(timestamp, 1, 10)','asc')->get();
+                        
+        return $series;
+
+    }    
 
     
 }

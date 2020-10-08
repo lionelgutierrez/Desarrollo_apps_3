@@ -20,3 +20,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::apiResource('serie', SerieController::class);
 
+Route::get('/seriedia/{topic}/{dia?}', 'SerieController@showdate');
+

@@ -23,6 +23,7 @@ Route::get('/Mediciones', function () {
     return view('Mediciones.index');
 });
 
-Route::get('/Mediciones/{topic}', function ($topic) {
-    return view('Mediciones.show',compact('topic'));
+Route::get('/Mediciones/{dispositivo}/{topic}/{dia?}', function ($dispositivo,$topic,$dia) {
+    return view('Mediciones.show',compact('dispositivo','topic','dia'));
 });
+

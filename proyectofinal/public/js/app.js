@@ -1926,42 +1926,64 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      chartData: [["Year", "Sales", "Expenses", "Profit"], ["2014", 1000, 400, 200], ["2015", 1170, 460, 250], ["2016", 660, 1120, 300], ["2017", 1030, 540, 350]],
+      chartData: [],
       chartOptions: {
         chart: {
           title: "Datos sensados para el Dispositivo",
           subtitle: "Humedad y Temperatura"
+        },
+        title: "Humedad y Temperatura",
+        legend: {
+          position: 'bottom'
+        },
+        width: 1000,
+        height: 400,
+        series: {
+          0: {
+            targetAxisIndex: 0
+          },
+          1: {
+            targetAxisIndex: 1
+          }
+        },
+        vAxes: {
+          // Adds titles to each axis.
+          0: {
+            title: 'Temperatura (°C)'
+          },
+          1: {
+            title: 'Humedad (%)'
+          }
         }
       }
     };
   },
   props: {
-    topic: String
+    topic: String,
+    dia: String
   },
   methods: {
     loadData: function loadData() {
       var _this = this;
 
-      axios.get('/api/serie/' + this.topic).then(function (response) {
-        var data = [["Fecha", "Temperatura", "Humedad"]]; //console.log(response.data);
-
+      axios.get('/api/seriedia/' + this.topic + "/" + this.dia).then(function (response) {
+        var data = [["Fecha", "Temperatura", "Humedad"]];
+        var contador = 0;
         response.data.forEach(function (obj) {
-          //var date = new Date(parseInt(obj.timestamp));
-          var fil = [obj.timestamp, parseFloat(obj.temperatura), parseFloat(obj.humedad)];
+          var fil = [obj.timestamp.substring(0, 10), parseFloat(obj.temperatura), parseFloat(obj.humedad)];
           data.push(fil);
+          contador++;
         });
         _this.chartData = data;
+
+        if (contador == 0) {
+          _this.chartData = [["Fecha", "Temperatura", "Humedad"], ['00:00:00', 0, 0]];
+        }
       });
     }
   },
   created: function created() {
-    console.log("entro");
-    console.log(this.topic);
-    console.log('api/serie/' + this.topic);
     this.loadData();
-  },
-  beforeMount: function beforeMount() {//this.parametro = this.$el.attributes['parametro'].value;
-    //console.log(this.attributes['parametro'].value);
   }
 });
 
@@ -19649,7 +19671,6 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { attrs: { id: "app" } },
     [
       _c("GChart", {
         attrs: {
