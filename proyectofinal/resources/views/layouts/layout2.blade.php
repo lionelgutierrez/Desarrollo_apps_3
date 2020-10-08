@@ -8,7 +8,15 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+	<link href="{{asset('css/app.css')}}" rel="stylesheet" type="text/css">
+	<script src="{{asset('js/app.js')}}" defer></script>
 
+	<link href="{{asset('css/bootstrap-datetimepicker.min.css')}}" rel="stylesheet" type="text/css">
+
+	<script src="{{asset('js/moment-with-locales.min.js')}}" ></script>
+	<script src="{{asset('js/bootstrap-datetimepicker.min.js')}}"></script>
+	
+	
 </head>
 <body>
  

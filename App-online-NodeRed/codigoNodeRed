@@ -199,7 +199,7 @@
         "type": "function",
         "z": "3bf66469.9a8d8c",
         "name": "",
-        "func": "//Ejemplo topico y mensaje\n//Ejemplo ESP32_1_lio/dht/temp_humedad 20.30,93.00\n\n//topic:  ESP32_1_lio/dht/temp_humedad\n//mensaje 20.30,93.00 = TEMP,HUMEDAD\n\nvar date = new Date();\nvar dateStr =\n  (\"00\" + (date.getMonth() + 1)).slice(-2) + \"/\" +\n  (\"00\" + date.getDate()).slice(-2) + \"/\" +\n  date.getFullYear() + \" \" +\n  (\"00\" + date.getHours()).slice(-2) + \":\" +\n  (\"00\" + date.getMinutes()).slice(-2) + \":\" +\n  (\"00\" + date.getSeconds()).slice(-2);\n\nquery = \"INSERT INTO series (timestamp,temperatura,humedad,topic) VALUES (\\\"\"+dateStr+\"\\\",\"+msg.payload+\",\\\"\"+msg.topic+\"\\\");\";\n\nmsg.topic = query;\nreturn msg;\n",
+        "func": "//Ejemplo topico y mensaje\n//Ejemplo ESP32_1_lio/dht/temp_humedad 20.30,93.00\n\n//topic:  ESP32_1_lio/dht/temp_humedad\n//mensaje 20.30,93.00 = TEMP,HUMEDAD\n\nvar date = new Date();\nvar dateStr =\n  (\"00\" + date.getDate()).slice(-2) + \"/\" +\n  (\"00\" + (date.getMonth() + 1)).slice(-2) + \"/\" +\n  date.getFullYear() + \" \" +\n  (\"00\" + date.getHours()).slice(-2) + \":\" +\n  (\"00\" + date.getMinutes()).slice(-2) + \":\" +\n  (\"00\" + date.getSeconds()).slice(-2);\n\nquery = \"INSERT INTO series (timestamp,temperatura,humedad,topic) VALUES (\\\"\"+dateStr+\"\\\",\"+msg.payload+\",\\\"\"+msg.topic+\"\\\");\";\n\nmsg.topic = query;\nreturn msg;\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",

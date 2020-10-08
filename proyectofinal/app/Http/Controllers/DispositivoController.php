@@ -38,12 +38,6 @@ class DispositivoController extends Controller
      */
     public function store(Request $request)
     {
-        //
-        /*
-        $this->validate($request,[ 'nombre'=>'required', 'descripcion'=>'required', 'ubicacion'=>'required']);
-        Dispositivo::create($request->all());
-        return redirect()->route('Dispositivo.index')->with('success','Dispositivo creado satisfactoriamente');        
-        */
         $input = $request->all();
    
         $validator = Validator::make($input, [
@@ -99,13 +93,6 @@ class DispositivoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
-        /*
-        $this->validate($request,[ 'nombre'=>'required', 'resumen'=>'required', 'npagina'=>'required', 'edicion'=>'required', 'autor'=>'required', 'npagina'=>'required', 'precio'=>'required']);
- 
-        libro::find($id)->update($request->all());
-        return redirect()->route('Libro.index')->with('success','Registro actualizado satisfactoriamente');
-         */
 
         $input = $request->all();
 
@@ -117,24 +104,9 @@ class DispositivoController extends Controller
         ]);
    
         if($validator->fails()){
-            //return $this->sendError('Error en validacion de datos. Hay datos requeridos.', $validator->errors());       
             return redirect()->route('Dispositivo.edit',$id)->withErrors($validator);
         }
-        /*
-        if ($request->has('nombre')) {
-            $dispositivo->nombre = $input['nombre'];
-        }
-        if ($request->has('descripcion')) {
-            $client->descripcion = $input['descripcion'];
-        }
-        if ($request->has('tipo')) {
-            $client->tipo = $input['tipo'];
-        }
-        if ($request->has('ubicacion')) {
-            $client->ubicacion = $input['ubicacion'];
-        }
-        $dispositivo->save();
-        */
+        
         Dispositivo::find($id)->update($request->all());
    
         return redirect()->route('Dispositivo.index')->with('success','Dispositivo modificado satisfactoriamente');
@@ -151,8 +123,6 @@ class DispositivoController extends Controller
     //public function destroy(Dispositivo $dispositivo)
     public function destroy($id)
     {
-        //
-        //$dispositivo->delete();
         Dispositivo::find($id)->delete();
         return redirect()->route('Dispositivo.index')->with('success','Dispositivo eliminado satisfactoriamente');
 

@@ -86,9 +86,10 @@
 								    </div>
                                 </div>                                
                             </div>    
+							<BR>
 							<div class="row">
 
-								<div class="col-xs-12 col-sm-12 col-md-12">
+								<div class="col-xs-4 col-sm-3 col-md-3">
 									<input type="submit"  value="Actualizar" class="btn btn-success btn-block">
 									<a href="{{ route('Dispositivo.index') }}" class="btn btn-info btn-block" >Volver al Listado</a>
 								</div>	
