@@ -40,7 +40,7 @@
 						<form method="POST" action="{{ route('Dispositivo.update',$dispositivo->id) }}"  role="form">
 							{{ csrf_field() }}
 							<input name="_method" type="hidden" value="PATCH">
-                                <div class="row">
+                            <div class="row">
                                 <div class="form-group">
                                     <div class="col-xs-4 col-sm-3 col-md-2">
                                      <label for="nombre">Nombre: (*)</label>&nbsp;
@@ -103,4 +103,5 @@
 			</div>
 		</div>
 	</section>
-	@endsection
+</div>	
+@endsection

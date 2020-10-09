@@ -19,6 +19,21 @@ class DispositivoController extends Controller
         return view('Dispositivo.index',compact('dispositivos')); 
     }
 
+    public function indexComnados()
+    {
+        $dispositivos = Dispositivo::orderBy('nombre','asc')->paginate(3);
+        return view('Comandos.index',compact('dispositivos')); 
+    }
+
+
+    
+    public function showComnados($id)
+    {
+        //
+        $dispositivo=Dispositivo::find($id);
+        return view('Comandos.show',compact('dispositivo'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *

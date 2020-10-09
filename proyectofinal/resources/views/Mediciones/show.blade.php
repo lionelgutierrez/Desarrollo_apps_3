@@ -46,8 +46,8 @@
                 };         
 
             </script>
-            </div>
-            </div>
+        </div>
+    </div>
 
 
 
@@ -59,9 +59,10 @@
     </div>
 </div>
 <div class="row">
-<div class="col-xs-8 col-sm-6 col-md-4">
-	<a href="{{ url('/Mediciones') }}" class="btn btn-info btn-block" >Volver a Listado de Dispositivos y Mediciones</a>
-</div>	
+    <div class="col-xs-8 col-sm-6 col-md-4">
+        <a href="{{ url('/Mediciones') }}" class="btn btn-info btn-block" >Volver a Listado de Dispositivos y Mediciones</a>
+    </div>	
+</div>
 <BR><BR>
 
 

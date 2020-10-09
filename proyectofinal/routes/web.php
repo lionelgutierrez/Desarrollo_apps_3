@@ -22,6 +22,10 @@ Route::get('/', function () {
 
 Route::get('/Mediciones', 'SerieController@disponibles');
 
+Route::get('/Comandos', 'DispositivoController@indexComnados');
+
+Route::get('/Comandos/{id}', 'DispositivoController@showComnados');
+
 Route::get('/Mediciones/{dispositivo}/{topic}/{dia?}', function ($dispositivo,$topic,$dia) {
     return view('Mediciones.show',compact('dispositivo','topic','dia'));
 });
