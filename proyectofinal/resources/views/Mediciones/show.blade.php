@@ -46,6 +46,9 @@
                 };         
 
             </script>
+            <div class='col-sm-2'><label>
+            <button class="btn btn-xs btn-success" onclick="window.location.reload(true);"><span class="glyphicon glyphicon-refresh"> Refrescar</button> 
+            </div>
         </div>
     </div>
 
