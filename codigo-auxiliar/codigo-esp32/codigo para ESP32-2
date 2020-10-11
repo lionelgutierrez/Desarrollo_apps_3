@@ -14,15 +14,11 @@ conexion
 
 ESP32 -> DHT22 sin encapsulado (pin 1 a Vcc, pin2 a ESP32 PIN 4, ground a ground)
 
-https://saber.patagoniatec.com/2014/06/dht22-dht11-sensor-de-tempertatura-y-humedad-arduino-argentina-ptec/
-
 PINOUT 
 pin 1 a VCC
 pin 2 datos
 pin 3 no usado
 pin4 GND
-
-
 
 
 Codigo fuente
@@ -47,8 +43,8 @@ extern "C" {
 }
 #include <AsyncMqttClient.h>
 
-#define WIFI_SSID "red_local_vm_lio"
-#define WIFI_PASSWORD "..LioneL--"
+#define WIFI_SSID "XXXXX"
+#define WIFI_PASSWORD "XXXXX"
 
 // Raspberry Pi Mosquitto MQTT Broker
 #define MQTT_HOST IPAddress(192, 168, 1, 114)
@@ -241,7 +237,7 @@ void loop() {
     String msg =  String(temp) + "," + String(hum);
     uint16_t packetIdPub = mqttClient.publish(MQTT_PUB_TEMPHUM, 1, true, msg.c_str());                            
     Serial.printf("Publishing on topic %s at QoS 1, packetId: %i\n", MQTT_PUB_TEMPHUM, packetIdPub);
-    Serial.printf("=====> Mensaje: %.2f \n", msg);
+    Serial.println("=====> Mensaje: %s", msg);
 
    
   }

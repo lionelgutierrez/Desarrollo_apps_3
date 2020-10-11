@@ -39,8 +39,8 @@ extern "C" {
 }
 #include <AsyncMqttClient.h>
 
-#define WIFI_SSID "red_local_vm_lio"
-#define WIFI_PASSWORD "..LioneL--"
+#define WIFI_SSID "XXXXXX"
+#define WIFI_PASSWORD "XXXXXX"
 
 // Raspberry Pi Mosquitto MQTT Broker
 #define MQTT_HOST IPAddress(192, 168, 1, 114)
@@ -233,7 +233,7 @@ void loop() {
     String msg =  String(temp) + "," + String(hum);
     uint16_t packetIdPub = mqttClient.publish(MQTT_PUB_TEMPHUM, 1, true, msg.c_str());                            
     Serial.printf("Publishing on topic %s at QoS 1, packetId: %i\n", MQTT_PUB_TEMPHUM, packetIdPub);
-    Serial.printf("=====> Mensaje: %.2f \n", msg);
+    Serial.println("=====> Mensaje: %s", msg);
 
    
   }
