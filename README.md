@@ -194,6 +194,6 @@ A continuación se describen los features utilizados:<BR>
 - features actuadores: generación de la pantalla y componente para poder prender los leds desde el Aplicativo Web.
 - features pantalla-principal: armado de la pagina principal del sistema.
 - features documentacion: armado de la documentación del proyecto.
-
+- features mejoras: mejoras en el código del proyecto.
 
 
