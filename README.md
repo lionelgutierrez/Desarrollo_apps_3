@@ -183,3 +183,17 @@ El repositorio está organizado en un conjunto de carpetas y archivos
     └──readme.md                     # Documentación de la aplicación.
 
 
+# Flujos de gitflow utilizados
+Para la gestión de versiones del proyecto se utilizó GitFLow.<BR>
+A continuación se describen los features utilizados:<BR>
+- feature crearproyecto: creación inicial del proyecto.
+- feature codigoESP32: creación de carpeta auxiliar con codigo a utilizar en el ESP32 y detalles de documentación del mismo.
+- feature app-almacenamiento-datos: creación de la carpeta donde se almacenan los flows utilizados en NodeRed para guardar los datos en la base de datos.
+- feature listado-dispositivos: creación de la parte del modelo que gestiona los dispositivos y el ABM de los mismos en el aplicativo Web.
+- feature mediciones: generación de la API para mostrar las mediciones de los sensores y las páginas para ver los gráficos de los sensores.
+- features actuadores: generación de la pantalla y componente para poder prender los leds desde el Aplicativo Web.
+- features pantalla-principal: armado de la pagina principal del sistema.
+- features documentacion: armado de la documentación del proyecto.
+
+
+
