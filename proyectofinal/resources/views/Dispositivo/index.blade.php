@@ -56,7 +56,7 @@
                    </form> 
                  </td>
                 <td>
-                <a href='{{"Mediciones/".$dispositivo->nombre."/".$dispositivo->nombre."-".str_replace("/","-",$dispositivo->tipo)."/".date("d-m-Y")  }}' class="btn btn-xs btn-info" ><span class="glyphicon glyphicon-signal"></a> 
+                <a href='{{"Mediciones/".$dispositivo->nombre."/".$dispositivo->nombre."-".str_replace("/","-",$dispositivo->tipo)."/".date("d-m-Y",time()-3*60*60)  }}' class="btn btn-xs btn-info" ><span class="glyphicon glyphicon-signal"></a> 
                 </td>
                 <td>
                 <a href='{{"Comandos/".$dispositivo->id}}' class="btn btn-xs btn-warning" ><span class="glyphicon glyphicon-hand-up"></a> 
