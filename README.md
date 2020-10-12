@@ -122,6 +122,9 @@ En esta pantalla se puede visualizar las mediciones de un dispositivos por día.
 Por defecto el sistema muestra las mediciones del día actual, pero se cuenta con un calendario para seleccionar la fecha y visualizar los datos de días anteriores. Además se pueden refrescar los datos del día utilizando el botón "Refrescar"<BR>
 Los datos se muestran como un gráfico de 2 escalas, uno para la humedad y otro para la temperatura.<BR>
 <BR>
+**Si el usauario está visualizando las mediciones del día actual, el sistema automáticamente hace un refresh de la pantalla a los 5 minutos, para recargar y permitir ver los datos actualizados.**
+<BR>
+<BR>
 Si el sistema no tiene datos para el día seleccionado se muestra el gráfico sin datos como en la siguiente figura:<BR>
 ![Grafico Mediciones Vacio](imagenes-doc/Pantalla-Mediciones-SinDatos.jpg?raw=true )
 
@@ -194,6 +197,6 @@ A continuación se describen los features utilizados:<BR>
 - features actuadores: generación de la pantalla y componente para poder prender los leds desde el Aplicativo Web.
 - features pantalla-principal: armado de la pagina principal del sistema.
 - features documentacion: armado de la documentación del proyecto.
-- features mejoras: mejoras en el código del proyecto.
+- features mejoras: mejoras en el código del proyecto y agregado de recarga automática en gráfico de mediciones, si se está visualizando el día actual.
 
 

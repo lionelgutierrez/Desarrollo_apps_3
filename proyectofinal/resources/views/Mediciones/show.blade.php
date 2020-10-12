@@ -45,6 +45,20 @@
                    document.location ="/Mediciones/"+disp+"/"+topic+"/"+fecha_new;
                 };         
 
+                function generarRecarga(fechaIn) {
+                    //Si es el dia actual -> genero un refresh automatico a los 5 minutos
+                    //fecha formato dd-mm-yyyy
+                    var hoy = new Date();
+                    var fecha = ("00" + hoy.getDate()).slice(-2) + "-" +("00" + (hoy.getMonth() + 1)).slice(-2) + "-" +hoy.getFullYear();
+                    if (fecha==fechaIn) {
+                        //Agrego recarga a los 5 minutos    
+                        console.log("entre");
+                        window.setTimeout(function () {recargar("{{$dispositivo}}","{{$topic}}",fechaIn) }, 5 * 60 * 1000);
+                    }
+                }
+
+                window.onload=generarRecarga('{{$dia}}');    
+
             </script>
             <div class='col-sm-2'><label>
             <button class="btn btn-xs btn-success" onclick="window.location.reload(true);"><span class="glyphicon glyphicon-refresh"> Refrescar</button> 
