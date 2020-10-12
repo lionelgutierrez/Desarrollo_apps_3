@@ -63,7 +63,6 @@ class DispositivoController extends Controller
         ]);
    
         if($validator->fails()){
-            //return $this->sendError('Error en validacion de datos. Hay datos requeridos.', $validator->errors());       
             return redirect()->route('Dispositivo.create')->withErrors($validator);            
         }
         

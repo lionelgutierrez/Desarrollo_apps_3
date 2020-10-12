@@ -4,9 +4,11 @@
 	<meta charset="utf-8">
 	<meta name="viewport"
 	content="width=device-width, initial-scale=1, user-scalable=yes">
-    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	
+
 
 	<link href="{{asset('css/app.css')}}" rel="stylesheet" type="text/css">
 	<script src="{{asset('js/app.js')}}" defer></script>
