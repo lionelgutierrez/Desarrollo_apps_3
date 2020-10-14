@@ -53,7 +53,7 @@
           </table>
         </div>
       </div>
-
+      {{ $dispositivos->links() }}
     </div>
   </div>
 </section>
